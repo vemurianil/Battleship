@@ -8,6 +8,26 @@
 
   <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.9" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Features\" />
+    <None Remove="Entities\" />
+    <None Remove="Data\" />
+    <None Remove="Features\Boards\" />
+    <None Remove="Features\Ships\" />
+    <None Remove="Features\Attack\" />
+    <None Remove="Microsoft.EntityFrameworkCore" />
+    <None Remove="Microsoft.EntityFrameworkCore.InMemory" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Features\" />
+    <Folder Include="Entities\" />
+    <Folder Include="Data\" />
+    <Folder Include="Features\Boards\" />
+    <Folder Include="Features\Ships\" />
+    <Folder Include="Features\Attack\" />
+  </ItemGroup>
 </Project>
