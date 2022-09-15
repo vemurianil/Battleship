@@ -8,6 +8,8 @@ namespace Battleship.API.Entities
         }
 
         public int Id { get; set; }
+        public Board Board { get; set; }
+        public ICollection<Coordinate> Coordinates { get; set; }
     }
 }
 

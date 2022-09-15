@@ -1,4 +1,7 @@
 ﻿using Battleship.API.Data;
+using FluentValidation;
+using FluentValidation.AspNetCore;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +11,11 @@ builder.Services.AddDbContext<BattleshipDbContext>(options =>
     options.UseInMemoryDatabase("BattleshipGameDb"));
 builder.Services.AddScoped<IBattleshipDbContext>(provider =>
     provider.GetRequiredService<BattleshipDbContext>());
+
+builder.Services.AddMediatR(typeof(Program));
+
+builder.Services.AddFluentValidationAutoValidation()
+                .AddValidatorsFromAssemblyContaining<IBattleshipDbContext>();
 
 builder.Services.AddControllers();
 
@@ -25,8 +33,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
-app.UseAuthorization();
 
 app.MapControllers();
 
